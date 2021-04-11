@@ -7,7 +7,7 @@ export class Header extends Mother {
 	constructor () {
 		super();
 		this.elId = 'header';
-		this.Template = Template;
-		this.Css = Css;
+		this.innerHtml = Template;
+		this.css = Css;
 	}
 }
