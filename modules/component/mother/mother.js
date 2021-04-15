@@ -13,14 +13,22 @@ export class Mother {
 
 		this.css = Css;
 
+		this.events = [];
+
 	}
 
-	get innerHtml () { return this._innerHtml + `<style>${this.css.default}</style>` }
+	get innerHtml () { 
+		let el = document.createElement('div');
+		el.innerHTML = this._innerHtml + `<style>${this.css.default}</style>`;
+		this.setEventsListeners(el);
+		return el; 
+	}
 
 	set innerHtml (newValue) { this._innerHtml = newValue.default }
 
-	setEventsListeners () {
+	setEventsListeners (el) {
 		if (this.events.length == 0) return;
-		this.events.forEach( event => event() );
+		this.events.forEach( event => event(el) );
 	}
+
 }

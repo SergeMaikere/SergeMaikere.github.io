@@ -4,27 +4,27 @@ import {About} from '../modules/component/about/about.js';
 import {Services} from '../modules/component/services/services.js';
 import {Portfolio} from '../modules/component/portfolio/portfolio.js';
 import {Faq} from '../modules/component/FAQ/faq.js';
-import {Team} from '../modules/component/team/team.js';
+// import {Team} from '../modules/component/team/team.js';
 import {Clients} from '../modules/component/clients/clients.js';
 import {Contact} from '../modules/component/contact/contact.js';
 import {Footer} from '../modules/component/footer/footer.js';
 import AOS from 'aos';
 	
 
-
-const pages = [
-	{ container: '#landing', content: new Header().innerHtml},
-	{ container: '#landing', content: new LandingPage().innerHtml},
-	{ container: '#main', content: new About().innerHtml},
-	{ container: '#main', content: new Services().innerHtml},
-	{ container: '#main', content: new Portfolio().innerHtml},
-	{ container: '#main', content: new Faq().innerHtml},
-	{ container: '#main', content: new Team().innerHtml},
-	{ container: '#main', content: new Clients().innerHtml},
-	{ container: '#main', content: new Contact().innerHtml},
-	{ container: '#main', content: new Footer().innerHtml}
+const sections = [
+	{ container: '#landing', ctrl: new Header()},
+	{ container: '#landing', ctrl: new LandingPage()},
+	{ container: '#main', ctrl: new About()},
+	{ container: '#main', ctrl: new Services()},
+	{ container: '#main', ctrl: new Portfolio()},
+	{ container: '#main', ctrl: new Faq()},
+	// { container: '#main', ctrl: new Team()},
+	{ container: '#main', ctrl: new Clients()},
+	{ container: '#main', ctrl: new Contact()},
+	{ container: '#main', ctrl: new Footer()}
 ]
 
-pages.forEach( page => document.querySelector(page.container).innerHTML += page.content );
+sections.forEach( section => document.querySelector(section.container).appendChild(section.ctrl.innerHtml) );
+
 
 AOS.init();
