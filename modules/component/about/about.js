@@ -7,9 +7,7 @@ export class About extends Mother {
 	constructor () {
 		super();
 		this.elId = 'about';
-		this.Template = Template;
-		this.Css = Css;
-		this.useAOS = true;
-
+		this.innerHtml = Template;
+		this.css = Css;
 	}
 }
