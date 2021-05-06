@@ -68,10 +68,11 @@ export class Header extends Mother {
    				link.addEventListener(
    					'click', 
    					e => {
+   						e.preventDefault();
    						if (!link.hash) return;
    						if (document.getElementById('navbar').classList.contains('navbar-mobile')) this.toggleMobileNav();
-   						//e.preventDefault();
-   						this.scrollTo(link.hash);
+   						window.location.hash = link.hash;
+                     this.scrollTo(link.hash);
    					}
    				)
    			}

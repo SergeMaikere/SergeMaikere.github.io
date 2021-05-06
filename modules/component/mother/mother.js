@@ -17,9 +17,13 @@ export class Mother {
 
 	}
 
+	get css () { return `<style>${this._css}</style>` }
+
+	set css (newValue) { this._css = newValue.default }
+
 	get innerHtml () { 
 		let el = document.createElement('div');
-		el.innerHTML = this._innerHtml + `<style>${this.css.default}</style>`;
+		el.innerHTML = `${this._innerHtml} ${this.css}`;
 		this.setEventsListeners(el);
 		return el; 
 	}
