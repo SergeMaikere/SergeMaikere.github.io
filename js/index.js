@@ -15,10 +15,10 @@ class App {
 	constructor () {
 
 		this.events = [
-			this.injectSections.bind(this),
-			this.initAOS.bind(this),
-			this.initPortfolioGlightbox.bind(this),
-			this.initClientSwiper.bind(this)
+			this.#injectSections.bind(this),
+			this.#initAOS.bind(this),
+			this.#initPortfolioGlightbox.bind(this),
+			this.#initClientSwiper.bind(this)
 		]
 
 		this.sections = [
@@ -40,17 +40,17 @@ class App {
 		this.events.forEach( event => event() );
 	}
 
-	injectSections () {
+	#injectSections () {
 		this.sections.forEach( 
 			section => document.querySelector(section.container).appendChild(section.ctrl.innerHtml) 
 		)
 	}
 
-	initAOS () { AOS.init() }
+	#initAOS () { AOS.init() }
 
-	initPortfolioGlightbox () { const portfolioLightbox = GLightbox( {selector: '.portfolio-lightbox'} ) }
+	#initPortfolioGlightbox () { const portfolioLightbox = GLightbox( {selector: '.portfolio-lightbox'} ) }
 
-	initClientSwiper () {
+	#initClientSwiper () {
 		return  new Swiper(
 			'.clients-slider', {
 			    speed: 400,
