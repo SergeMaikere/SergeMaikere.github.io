@@ -39,7 +39,7 @@ export class Mother {
 
 	setTextByLanguage (el) {
 		if (!Language.TEXTS.hasOwnProperty(this.constructor.name.toLowerCase())) return;
-		Language.setTextByLanguage(el);
+		Language.setTextByLanguage(el, this.constructor.name.toLowerCase());
 	}
 
 }

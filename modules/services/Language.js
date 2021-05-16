@@ -4,7 +4,7 @@ import Constants from './Constants.js';
 export default class Language {
 	static lang = 'en';
 
-	#TEXTS = {
+	static TEXTS = {
 		header: {
 			aboutLink: {
 				en: 'About',
@@ -44,21 +44,23 @@ export default class Language {
 		}
 	}
 
-	static setTextByLanguage (el) {
-		const lang = Language.lang;
-		const sectionText = Language.TEXTS[this.constructor.name.toLowerCase()];
+	static setTextByLanguage (el, section) {
+		const lang = this.lang;
+
+		const sectionText = this.TEXTS[section];
 		const sectionTextKeys = Object.keys(sectionText);
 
 		sectionTextKeys.forEach( key =>  el.querySelector('#' + key).innerText = sectionText[key][lang] )
 	}
 
-	/*static set lang (newValue) {
-		Object.keys(this.#TEXTS).forEach(
-			section => {
-				Object.keys(section).forEach(
-					key => this.setTextByLanguage(document.querySelector('#' + key))
-				)
-			}
+	static setLang (newValue) {
+		this.lang = newValue;
+		this.refreshTexts();
+	}
+
+	static refreshTexts () {
+		Object.keys(this.TEXTS).forEach(
+			section => this.setTextByLanguage(document.querySelector('#' + section), section)
 		)
-	}*/
+	}
 }

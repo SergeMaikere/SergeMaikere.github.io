@@ -1,6 +1,7 @@
 import {Mother} from '../mother/mother.js';
 import * as Template from './header.html';
 import * as Css from './header.css';
+import Language from '../../services/Language.js';
 
 export class Header extends Mother {
 
@@ -15,7 +16,7 @@ export class Header extends Mother {
 			this.#toggleLinkActiveOnScroll.bind(this),
 			this.#offsetHeaderOnScroll.bind(this),
 			this.#scrollToUrlHashLinkOnLoad.bind(this),
-         this.#setLanguageOnClick.bind(this)
+         	this.#setLanguageOnClick.bind(this)
 		]
 	}
 
@@ -102,9 +103,9 @@ export class Header extends Mother {
 		)
    }
 
-   #setLanguageOnClick () {
-      [...document.querySelectorAll('.dropdown li a')].forEach( 
-         lang => lang.addEventListener('click', e => Language.setLang(e.target.dataset.lang)) 
-      )
+   #setLanguageOnClick (el) {
+	[...el.querySelectorAll('.dropdown li a')].forEach( 
+	 	lang => lang.addEventListener('click', e => Language.setLang(e.target.dataset.lang)) 
+	)
    }
 }
