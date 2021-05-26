@@ -31,13 +31,30 @@ export default class Language {
 			},
 			getStartedLink: {
 				en: 'Get Started',
-				nl: 'Get Started',
+				nl: 'Begin hier',
 				fr: 'Commencer ici'
 			},
 			langLink: {
 				en: 'EN',
 				nl: 'NL',
 				fr: 'FR'
+			}
+		},
+		landingPage: {
+			titleLand: {
+				en: 'Your property online with Host hand',
+				nl: 'Uw eigendom online met Host hand',
+				fr: 'Votre bien immobilier en ligne avec Host Hand'
+			},
+			subTitleLand: {
+				en: 'No worries we got this',
+				nl: 'Jij zorgt voor niets, wij zorgen voor alles',
+				fr: "Tu s'occupe de rien on s'occupe de tout"
+			},
+			getStartedLand: {
+				en: 'Get Started',
+				nl: 'Begin hier',
+				fr: 'Commencer ici'
 			}
 		}
 	}
