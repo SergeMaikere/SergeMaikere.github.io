@@ -1,5 +1,3 @@
-import Constants from './Constants.js';
-
 
 export default class Language {
 	static lang = 'en';
@@ -46,11 +44,9 @@ export default class Language {
 
 	static setTextByLanguage (el, section) {
 		const lang = this.lang;
-
 		const sectionText = this.TEXTS[section];
-		const sectionTextKeys = Object.keys(sectionText);
 
-		sectionTextKeys.forEach( key =>  el.querySelector('#' + key).innerText = sectionText[key][lang] )
+		Object.keys(sectionText).forEach( key =>  el.querySelector('#' + key).innerText = sectionText[key][lang] )
 	}
 
 	static setLang (newValue) {

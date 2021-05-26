@@ -1,5 +1,6 @@
 import * as Template from './mother.html';
 import * as Css from './mother.css';
+import Utils from '../../services/Utils.js';
 import Language from '../../services/Language.js';
 
 
@@ -38,8 +39,8 @@ export class Mother {
 	}
 
 	setTextByLanguage (el) {
-		if (!Language.TEXTS.hasOwnProperty(this.constructor.name.toLowerCase())) return;
-		Language.setTextByLanguage(el, this.constructor.name.toLowerCase());
+		if (!Language.TEXTS.hasOwnProperty(Utils.lowerCaseFirstLetter(this.constructor.name))) return;
+		Language.setTextByLanguage(el, Utils.lowerCaseFirstLetter(this.constructor.name));
 	}
 
 }

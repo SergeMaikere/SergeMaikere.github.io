@@ -56,8 +56,9 @@ export class Header extends Mother {
    #toggleMobileNav () {
 		document.getElementById('navbar').classList.toggle('navbar-mobile');
 		let mobileNavButton = document.getElementById('mobile-nav-button');
-      mobileNavButton.classList.toggle('bi-list');
-      mobileNavButton.classList.toggle('bi-x');
+      	mobileNavButton.classList.toggle('bi-list');
+      	
+      	mobileNavButton.classList.toggle('bi-x');
    }
 
    /**
@@ -74,7 +75,7 @@ export class Header extends Mother {
 						if (!link.hash) return;
 						if (document.getElementById('navbar').classList.contains('navbar-mobile')) this.toggleMobileNav();
 						window.location.hash = link.hash;
-                  this.#scrollTo(link.hash);
+                  		this.#scrollTo(link.hash);
 					}
 				)
 			}
