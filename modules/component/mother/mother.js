@@ -1,5 +1,7 @@
 import * as Template from './mother.html';
 import * as Css from './mother.css';
+import Utils from '../../services/Utils.js';
+import Language from '../../services/Language.js';
 
 
 export class Mother {
@@ -17,9 +19,14 @@ export class Mother {
 
 	}
 
+	get css () { return `<style>${this._css}</style>` }
+
+	set css (newValue) { this._css = newValue.default }
+
 	get innerHtml () { 
 		let el = document.createElement('div');
-		el.innerHTML = this._innerHtml + `<style>${this.css.default}</style>`;
+		el.innerHTML = `${this._innerHtml} ${this.css}`;
+		this.setTextByLanguage(el)
 		this.setEventsListeners(el);
 		return el; 
 	}
@@ -29,6 +36,11 @@ export class Mother {
 	setEventsListeners (el) {
 		if (this.events.length == 0) return;
 		this.events.forEach( event => event(el) );
+	}
+
+	setTextByLanguage (el) {
+		if (!Language.TEXTS.hasOwnProperty(Utils.lowerCaseFirstLetter(this.constructor.name))) return;
+		Language.setTextByLanguage(el, Utils.lowerCaseFirstLetter(this.constructor.name));
 	}
 
 }
