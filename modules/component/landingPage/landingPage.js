@@ -7,7 +7,7 @@ export class LandingPage extends Mother {
 	constructor () {
 		super();
 		this.elId = 'landingPage';
-		this.Template = Template;
-		this.Css = Css;
+		this.innerHtml = Template;
+		this.css = Css;
 	}
 }
