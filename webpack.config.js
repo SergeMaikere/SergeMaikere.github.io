@@ -1,7 +1,7 @@
 export default {
-  entry: "./js/index.js",
+  entry: "./index.js",
   output: {
-    filename: "./js/bundle.js",
+    filename: "./bundle.js",
     publicPath: ''
   },
   mode: "development",
