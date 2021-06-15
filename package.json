@@ -2,10 +2,11 @@
   "name": "family",
   "version": "1.0.0",
   "description": "Static page family business",
-  "main": "js/index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "webpack serve"
+    "serve": "webpack serve",
+    "build": "webpack build"
   },
   "type": "module",
   "author": "Serge Maïkere",
