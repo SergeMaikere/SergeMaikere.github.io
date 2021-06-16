@@ -73,7 +73,7 @@ export class Header extends Mother {
 					e => {
 						e.preventDefault();
 						if (!link.hash) return;
-						if (document.getElementById('navbar').classList.contains('navbar-mobile')) this.toggleMobileNav();
+						if (document.getElementById('navbar').classList.contains('navbar-mobile')) this.#toggleMobileNav();
 						window.location.hash = link.hash;
                   		this.#scrollTo(link.hash);
 					}
@@ -98,15 +98,20 @@ export class Header extends Mother {
 			'load',
 			() => {
 				if (!window.location.hash || !document.querySelector(window.location.hash)) return;
-				this.scrollTo(window.location.hash);
-
+				this.#scrollTo(window.location.hash);
 			}
 		)
    }
 
    #setLanguageOnClick (el) {
-	[...el.querySelectorAll('.dropdown li a')].forEach( 
-	 	lang => lang.addEventListener('click', e => Language.setLang(e.target.dataset.lang)) 
-	)
+		[...el.querySelectorAll('.dropdown li a')].forEach( 
+	 		lang => lang.addEventListener(
+	 			'click', 
+	 			e => {
+	 				Language.setLang(e.target.dataset.lang);
+	 				if (document.getElementById('navbar').classList.contains('navbar-mobile')) this.#toggleMobileNav();
+	 			}
+	 		)
+		)
    }
 }

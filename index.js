@@ -1,13 +1,13 @@
-import {LandingPage} from '../modules/component/landingPage/landingPage.js';
-import {Header} from '../modules/component/header/header.js';
-import {About} from '../modules/component/about/about.js';
-import {Services} from '../modules/component/services/services.js';
-import {Portfolio} from '../modules/component/portfolio/portfolio.js';
-import {Faq} from '../modules/component/FAQ/faq.js';
-// import {Team} from '../modules/component/team/team.js';
-import {Clients} from '../modules/component/clients/clients.js';
-import {Contact} from '../modules/component/contact/contact.js';
-import {Footer} from '../modules/component/footer/footer.js';
+import {LandingPage} from './modules/component/landingPage/landingPage.js';
+import {Header} from './modules/component/header/header.js';
+import {About} from './modules/component/about/about.js';
+import {Services} from './modules/component/services/services.js';
+import {Portfolio} from './modules/component/portfolio/portfolio.js';
+import {Faq} from './modules/component/FAQ/faq.js';
+// import {Team} from './modules/component/team/team.js';
+import {Clients} from './modules/component/clients/clients.js';
+import {Contact} from './modules/component/contact/contact.js';
+import {Footer} from './modules/component/footer/footer.js';
 
 
 class App {
