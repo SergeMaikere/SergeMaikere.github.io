@@ -59,13 +59,10 @@ export default class Language {
 		}
 	}
 
-	static setTextByLanguage (el, section) {
-		const lang = this.lang;
-		const sectionText = this.TEXTS[section];
 
-		Object.keys(sectionText).forEach( key =>  el.querySelector('#' + key).innerText = sectionText[key][lang] )
-	}
-
+	/**
+	* Language selection
+	**/
 	static setLang (newValue) {
 		this.lang = newValue;
 		this.refreshTexts();
@@ -75,5 +72,12 @@ export default class Language {
 		Object.keys(this.TEXTS).forEach(
 			section => this.setTextByLanguage(document.querySelector('#' + section), section)
 		)
+	}
+
+	static setTextByLanguage (el, section) {
+		const lang = this.lang;
+		const sectionText = this.TEXTS[section];
+
+		Object.keys(sectionText).forEach( key =>  el.querySelector('#' + key).innerText = sectionText[key][lang] )
 	}
 }
