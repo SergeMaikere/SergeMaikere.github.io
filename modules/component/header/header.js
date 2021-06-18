@@ -12,6 +12,7 @@ export class Header extends Mother {
 		this.css = Css;
 
 		this.events = [
+         	this.#preventScrollOnEmptyHref.bind(this),
 			this.#toggleMobileNavOnClick.bind(this),
 			this.#toggleLinkActiveOnScroll.bind(this),
 			this.#offsetHeaderOnScroll.bind(this),
@@ -49,23 +50,23 @@ export class Header extends Mother {
 	}
 
 	/**
-   * Mobile nav toggle
-   */
-   #toggleMobileNavOnClick (el) { el.querySelector('.mobile-nav-toggle').addEventListener('click', this.#toggleMobileNav) }
+   	* Mobile nav toggle
+   	*/
+   	#toggleMobileNavOnClick (el) { el.querySelector('.mobile-nav-toggle').addEventListener('click', this.#toggleMobileNav) }
 
-   #toggleMobileNav () {
+   	#toggleMobileNav () {
 		document.getElementById('navbar').classList.toggle('navbar-mobile');
 		let mobileNavButton = document.getElementById('mobile-nav-button');
       	mobileNavButton.classList.toggle('bi-list');
       	
       	mobileNavButton.classList.toggle('bi-x');
-   }
+   	}
 
-   /**
-   * Offset on Scroll
-   */
+   	/**
+   	* Offset on Scroll
+   	*/
 
-   #offsetHeaderOnScroll (el) {
+	#offsetHeaderOnScroll (el) {
 		[...el.querySelectorAll('.scrollto')].forEach(
 			link => {
 				link.addEventListener(
@@ -80,9 +81,9 @@ export class Header extends Mother {
 				)
 			}
 		)
-   }
+   	}
 
-   #scrollTo (elId) {
+   	#scrollTo (elId) {
 		const headerOffset = document.getElementById('header').offsetHeight;
 		const elPos = document.querySelector(elId).offsetTop;
 		window.scrollTo(
@@ -91,9 +92,13 @@ export class Header extends Mother {
 				behavior: 'smooth'
 			}
 		)
-   }
+   	}
 
-   #scrollToUrlHashLinkOnLoad () {
+
+   	/**
+   	* Scroll on load
+   	*/
+   	#scrollToUrlHashLinkOnLoad () {
 		window.addEventListener(
 			'load',
 			() => {
@@ -101,9 +106,23 @@ export class Header extends Mother {
 				this.#scrollTo(window.location.hash);
 			}
 		)
-   }
+   	}
 
-   #setLanguageOnClick (el) {
+
+   	/**
+   	* Stop default scroll when click on link with href="#"
+   	*/
+   	#preventScrollOnEmptyHref (el) {
+   		el.querySelectorAll('a').forEach(
+   			link => link.addEventListener( 'click', e => e.preventDefault() )
+   		)
+   	}
+
+
+   	/**
+   	* Language selection
+   	*/
+   	#setLanguageOnClick (el) {
 		[...el.querySelectorAll('.dropdown li a')].forEach( 
 	 		lang => lang.addEventListener(
 	 			'click', 
@@ -113,5 +132,5 @@ export class Header extends Mother {
 	 			}
 	 		)
 		)
-   }
+   	}
 }
