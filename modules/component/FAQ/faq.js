@@ -1,6 +1,6 @@
 import {Mother} from '../mother/mother.js';
 import * as Template from './faq.html';
-import * as Css from './faq.css';
+import faq from './faq.scss';
 
 export class Faq extends Mother {
 
@@ -8,6 +8,6 @@ export class Faq extends Mother {
 		super();
 		this.elId = 'faq';
 		this.innerHtml = Template;
-		this.css = Css;
+		this.css = faq;
 	}
 }

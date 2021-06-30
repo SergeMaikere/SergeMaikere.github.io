@@ -1,6 +1,6 @@
 import {Mother} from '../mother/mother.js';
 import * as Template from './footer.html';
-import * as Css from './footer.css';
+import * as Css from './footer.scss';
 
 export class Footer extends Mother {
 

@@ -1,3 +1,4 @@
+import style from './css/style.scss';
 import {LandingPage} from './modules/component/landingPage/landingPage.js';
 import {Header} from './modules/component/header/header.js';
 import {About} from './modules/component/about/about.js';
@@ -14,11 +15,14 @@ class App {
 
 	constructor () {
 
+		this.style = style;
+
 		this.events = [
 			this.#injectSections.bind(this),
 			this.#initAOS.bind(this),
 			this.#initPortfolioGlightbox.bind(this),
 			this.#initClientSwiper.bind(this)
+			//this.#injectMainCss.bind(this)
 		]
 
 		this.sections = [
@@ -44,6 +48,10 @@ class App {
 		this.sections.forEach( 
 			section => document.querySelector(section.container).appendChild(section.ctrl.innerHtml) 
 		)
+	}
+
+	#injectMainCss () {
+		document.querySelector('#main').innerHtml += `<style>${this.style}</style>`;
 	}
 
 	#initAOS () { AOS.init() }
@@ -91,5 +99,3 @@ class App {
 const app = new App();
 
 app.init();
-
-

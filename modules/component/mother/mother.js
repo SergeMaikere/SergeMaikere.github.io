@@ -1,5 +1,5 @@
 import * as Template from './mother.html';
-import * as Css from './mother.css';
+import mother from './mother.scss';
 import Utils from '../../services/Utils.js';
 import Language from '../../services/Language.js';
 
@@ -9,11 +9,9 @@ export class Mother {
 
 		this.elId = 'id';
 
-		this.events = [];
-
 		this.innerHtml = Template;
 
-		this.css = Css;
+		this.css = mother;
 
 		this.events = [];
 
@@ -21,7 +19,7 @@ export class Mother {
 
 	get css () { return `<style>${this._css}</style>` }
 
-	set css (newValue) { this._css = newValue.default }
+	set css (newValue) { this._css = newValue }
 
 	get innerHtml () { 
 		let el = document.createElement('div');
