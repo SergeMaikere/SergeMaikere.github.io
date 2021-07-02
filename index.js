@@ -5,7 +5,7 @@ import {About} from './modules/component/about/about.js';
 import {Services} from './modules/component/services/services.js';
 import {Portfolio} from './modules/component/portfolio/portfolio.js';
 import {Faq} from './modules/component/FAQ/faq.js';
-// import {Team} from './modules/component/team/team.js';
+import {Team} from './modules/component/team/team.js';
 import {Clients} from './modules/component/clients/clients.js';
 import {Contact} from './modules/component/contact/contact.js';
 import {Footer} from './modules/component/footer/footer.js';
@@ -22,7 +22,6 @@ class App {
 			this.#initAOS.bind(this),
 			this.#initPortfolioGlightbox.bind(this),
 			this.#initClientSwiper.bind(this)
-			//this.#injectMainCss.bind(this)
 		]
 
 		this.sections = [
@@ -32,7 +31,7 @@ class App {
 			{ container: '#main', ctrl: new Services()},
 			{ container: '#main', ctrl: new Portfolio()},
 			{ container: '#main', ctrl: new Faq()},
-			// { container: '#main', ctrl: new Team()},
+			{ container: '#main', ctrl: new Team()},
 			{ container: '#main', ctrl: new Clients()},
 			{ container: '#main', ctrl: new Contact()},
 			{ container: '#main', ctrl: new Footer()}
@@ -99,3 +98,4 @@ class App {
 const app = new App();
 
 app.init();
+

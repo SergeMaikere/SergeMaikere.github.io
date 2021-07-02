@@ -14,10 +14,10 @@ body {
 }
 
 a {
-	color: $secondary;
+	color: $tertiary;
 	text-decoration: none;
 	&:hover {
-	  	color: $tertiary ;
+	  	color: $quarternary ;
 	  	text-decoration: none;
 	}
 }
@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 section {
   	padding: 60px 0;
   	.section-bg {
-	  	background-color: $quarternary;
+	  	background-color: $senary;
 	}
 
 	.section-title {
@@ -44,7 +44,7 @@ section {
 			padding-bottom: 0;
 			line-height: 1px;
 			margin-bottom: 15px;
-			color: #c2b7b1;
+			color: $nonary;
 		}
 		p {
 			padding-bottom: 15px;
@@ -59,7 +59,7 @@ section {
 			  	display: block;
 			  	width: 60px;
 			  	height: 2px;
-			  	background: $secondary;
+			  	background: $quarternary;
 			  	bottom: 0;
 			  	left: calc(50% - 30px);
 		  	}

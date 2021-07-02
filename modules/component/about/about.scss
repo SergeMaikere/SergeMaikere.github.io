@@ -1,28 +1,32 @@
+@import '../../../css/colors';
+
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-.about h3 {
-  font-weight: 700;
-  font-size: 34px;
-  color: #4e4039;
-}
+.about {
+    h3 {
+        font-weight: 700;
+        font-size: 34px;
+        color: $primary;
+    }
 
-.about h4 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-top: 5px;
-  color: #7a6960;
-}
+    h4 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 5px;
+        color: $secondary;
+    }
 
-.about i {
-  font-size: 48px;
-  margin-top: 15px;
-  color: #f39e7a;
-}
+    i {
+        font-size: 48px;
+        margin-top: 15px;
+        color: $quinary;
+    }
 
-.about p {
-  font-size: 15px;
-  color: #5a6570;
+    p {
+        font-size: 15px;
+        color: $octonary;
+    }
 }
 
 @media (max-width: 991px) {
