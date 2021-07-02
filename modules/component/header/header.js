@@ -12,21 +12,21 @@ export class Header extends Mother {
 		this.css = Css;
 
 		this.events = [
-         	this.#preventScrollOnEmptyHref.bind(this),
-			this.#toggleMobileNavOnClick.bind(this),
-			this.#toggleLinkActiveOnScroll.bind(this),
-			this.#offsetHeaderOnScroll.bind(this),
-			this.#scrollToUrlHashLinkOnLoad.bind(this),
-         	this.#setLanguageOnClick.bind(this)
+         	this.#preventScrollOnEmptyHref,
+			this.#toggleMobileNavOnClick,
+			this.#toggleLinkActiveOnScroll,
+			this.#offsetHeaderOnScroll,
+			this.#scrollToUrlHashLinkOnLoad,
+         	this.#setLanguageOnClick
 		]
 	}
 
-	#toggleLinkActiveOnScroll (el) {
-		window.addEventListener('load', this.#toggleLinkActive.bind(this));
-		document.addEventListener('scroll', this.#toggleLinkActive.bind(this));
+	#toggleLinkActiveOnScroll = el => {
+		window.addEventListener('load', this.#toggleLinkActive);
+		document.addEventListener('scroll', this.#toggleLinkActive);
 	}
 
-	#toggleLinkActive () {
+	#toggleLinkActive = () => {
 		const test = [...document.querySelectorAll('#navbar .scrollto')];
 		test.forEach(
 			navlink => {
@@ -40,11 +40,11 @@ export class Header extends Mother {
 		)
 	}
 
-	#getSection (hash) { 
+	#getSection = hash => { 
 		return hash ? document.querySelector(hash) : false;
 	}
 
-	#isInSectionRange (el) { 
+	#isInSectionRange = el => { 
 		let position = window.scrollY + 200;
 		return el.offsetTop <= position && (el.offsetTop + el.offsetHeight) >= position; 
 	}
@@ -52,9 +52,9 @@ export class Header extends Mother {
 	/**
    	* Mobile nav toggle
    	*/
-   	#toggleMobileNavOnClick (el) { el.querySelector('.mobile-nav-toggle').addEventListener('click', this.#toggleMobileNav) }
+   	#toggleMobileNavOnClick = el => { el.querySelector('.mobile-nav-toggle').addEventListener('click', this.#toggleMobileNav) }
 
-   	#toggleMobileNav () {
+   	#toggleMobileNav = () => {
 		document.getElementById('navbar').classList.toggle('navbar-mobile');
 		let mobileNavButton = document.getElementById('mobile-nav-button');
       	mobileNavButton.classList.toggle('bi-list');
@@ -66,7 +66,7 @@ export class Header extends Mother {
    	* Offset on Scroll
    	*/
 
-	#offsetHeaderOnScroll (el) {
+	#offsetHeaderOnScroll = el => {
 		[...el.querySelectorAll('.scrollto')].forEach(
 			link => {
 				link.addEventListener(
@@ -83,7 +83,7 @@ export class Header extends Mother {
 		)
    	}
 
-   	#scrollTo (elId) {
+   	#scrollTo = elId => {
 		const headerOffset = document.getElementById('header').offsetHeight;
 		const elPos = document.querySelector(elId).offsetTop;
 		window.scrollTo(
@@ -98,7 +98,7 @@ export class Header extends Mother {
    	/**
    	* Scroll on load
    	*/
-   	#scrollToUrlHashLinkOnLoad () {
+   	#scrollToUrlHashLinkOnLoad = () => {
 		window.addEventListener(
 			'load',
 			() => {
@@ -112,7 +112,7 @@ export class Header extends Mother {
    	/**
    	* Stop default scroll when click on link with href="#"
    	*/
-   	#preventScrollOnEmptyHref (el) {
+   	#preventScrollOnEmptyHref = el => {
    		el.querySelectorAll('a').forEach(
    			link => link.addEventListener( 'click', e => e.preventDefault() )
    		)
@@ -122,7 +122,7 @@ export class Header extends Mother {
    	/**
    	* Language selection
    	*/
-   	#setLanguageOnClick (el) {
+   	#setLanguageOnClick = el => {
 		[...el.querySelectorAll('.dropdown li a')].forEach( 
 	 		lang => lang.addEventListener(
 	 			'click', 

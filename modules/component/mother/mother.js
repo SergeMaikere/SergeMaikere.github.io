@@ -31,12 +31,12 @@ export class Mother {
 
 	set innerHtml (newValue) { this._innerHtml = newValue.default }
 
-	setEventsListeners (el) {
+	setEventsListeners = el => {
 		if (this.events.length == 0) return;
 		this.events.forEach( event => event(el) );
 	}
 
-	setTextByLanguage (el) {
+	setTextByLanguage = el => {
 		if (!Language.TEXTS.hasOwnProperty(Utils.lowerCaseFirstLetter(this.constructor.name))) return;
 		Language.setTextByLanguage(el, Utils.lowerCaseFirstLetter(this.constructor.name));
 	}

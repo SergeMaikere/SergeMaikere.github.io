@@ -13,11 +13,11 @@ export class Portfolio extends Mother {
 		this.innerHtml = Template;
 		this.css = Css;
 
-		this.events = [ this.filterPortfolioOnClick.bind(this) ]
+		this.events = [ this.filterPortfolioOnClick ]
 	}
 
 
-	filterPortfolioOnClick (el) {
+	filterPortfolioOnClick = el => {
 		window.addEventListener(
 			'load',
 			() => {
