@@ -1,7 +1,7 @@
 import {Mother} from '../mother/mother.js';
 import {PortfolioDetails} from '../portfolio_details/portfolio-details.js';
 import * as Template from './portfolio.html';
-import * as Css from './portfolio.css';
+import * as Css from './portfolio.scss';
 import Isotope from 'isotope-layout';
 import AOS from 'aos';
 

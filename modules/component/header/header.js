@@ -1,6 +1,6 @@
 import {Mother} from '../mother/mother.js';
 import * as Template from './header.html';
-import * as Css from './header.css';
+import * as Css from './header.scss';
 import Language from '../../services/Language.js';
 
 export class Header extends Mother {

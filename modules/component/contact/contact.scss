@@ -1,0 +1,178 @@
+@import '../../../css/colors';
+/*--------------------------------------------------------------
+# Contact Us
+--------------------------------------------------------------*/
+
+%hover-effect {
+	background: $tertiary;
+	color: $septenary;
+}
+
+%form-styling {
+	border-radius: 0;
+	box-shadow: none;
+	font-size: 14px;
+}
+
+.contact .info {
+	border-top: 3px solid $tertiary;
+	border-bottom: 3px solid $tertiary;
+	padding: 30px;
+	background: $septenary;
+	width: 100%;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+
+	i {
+		font-size: 20px;
+		color: $tertiary;
+		float: left;
+		width: 44px;
+		height: 44px;
+		background: $senary;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50px;
+		transition: all 0.3s ease-in-out;
+	}
+
+	h4 {
+		padding: 0 0 0 60px;
+		font-size: 22px;
+		font-weight: 600;
+		margin-bottom: 5px;
+		color: $secondary;
+	}
+
+	p {
+		padding: 0 0 10px 60px;
+		margin-bottom: 20px;
+		font-size: 14px;
+		color: $nonary;
+	}
+
+	.email p {
+		padding-top: 5px;
+	}
+
+	.social-links {
+		padding-left: 60px;
+	}
+
+	a {
+		font-size: 18px;
+		display: inline-block;
+		background: #333;
+		color: $septenary;
+		line-height: 1;
+		padding: 8px 0;
+		border-radius: 50%;
+		text-align: center;
+		width: 36px;
+		height: 36px;
+		transition: 0.3s;
+		margin-right: 10px;
+
+		&:hover {
+			background: $tertiary;
+			color: $septenary;
+		}
+	}
+
+	.email:hover i { @extend %hover-effect; }
+	.address:hover i { @extend %hover-effect; }
+	.phone:hover i { @extend %hover-effect; }
+
+}
+
+
+.contact .php-email-form {
+	width: 100%;
+	border-top: 3px solid $tertiary;
+	border-bottom: 3px solid $tertiary;
+	padding: 30px;
+	background: $septenary;
+	box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+
+	.form-group { padding-bottom: 8px; }
+
+	.error-message {
+		display: none;
+		color: $septenary;
+		background: #ed3c0d;
+		text-align: left;
+		padding: 15px;
+		font-weight: 600;
+	}
+
+	.error-message br + br { margin-top: 25px; }
+
+	.sent-message {
+		display: none;
+		color: $septenary;
+		background: #18d26e;
+		text-align: center;
+		padding: 15px;
+		font-weight: 600;
+	}
+
+	.loading {
+		display: none;
+		background: $septenary;
+		text-align: center;
+		padding: 15px;
+
+		&:before {
+			content: "";
+			display: inline-block;
+			border-radius: 50%;
+			width: 24px;
+			height: 24px;
+			margin: 0 10px -6px 0;
+			border: 3px solid #18d26e;
+			border-top-color: #eee;
+			-webkit-animation: animate-loading 1s linear infinite;
+			animation: animate-loading 1s linear infinite;
+		}
+	}
+
+	input {
+		@extend %form-styling;
+		height: 44px;
+	}
+
+	textarea {
+		@extend %form-styling;
+		padding: 10px 12px;
+	}
+
+	button[type="submit"] {
+		background: $tertiary;
+		border: 0;
+		padding: 10px 24px;
+		color: $septenary;
+		transition: 0.4s;
+		border-radius: 4px;
+
+		&:hover { background: $quarternary; }
+	}
+}
+
+
+@-webkit-keyframes animate-loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes animate-loading {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

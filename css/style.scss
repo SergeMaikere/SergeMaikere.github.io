@@ -1,0 +1,71 @@
+@import './colors';
+
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+body {
+	font-family: "Open Sans", sans-serif;
+	color: #212529;
+	#main {
+	  	margin-top: 72px;
+	}
+}
+
+a {
+	color: $tertiary;
+	text-decoration: none;
+	&:hover {
+	  	color: $quarternary ;
+	  	text-decoration: none;
+	}
+}
+
+h1, h2, h3, h4, h5, h6, .font-primary {
+  	font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+section {
+  	padding: 60px 0;
+  	.section-bg {
+	  	background-color: $senary;
+	}
+
+	.section-title {
+	  	text-align: center;
+	  	padding-bottom: 30px;
+	  	h2 {
+			font-size: 24px;
+			font-weight: 700;
+			padding-bottom: 0;
+			line-height: 1px;
+			margin-bottom: 15px;
+			color: $nonary;
+		}
+		p {
+			padding-bottom: 15px;
+			margin-bottom: 15px;
+			position: relative;
+			font-size: 32px;
+			font-weight: 700;
+			color: $primary;
+			&::after {
+		  		content: '';
+			  	position: absolute;
+			  	display: block;
+			  	width: 60px;
+			  	height: 2px;
+			  	background: $quarternary;
+			  	bottom: 0;
+			  	left: calc(50% - 30px);
+		  	}
+		}
+	}
+}
+
+
+

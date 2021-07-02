@@ -12,12 +12,17 @@ export default {
     module: {
         rules: [
             {
+                test: /\.js$/i,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            },
+            {
                 test: /\.html$/i,
                 loader: 'html-loader'
             },
             {
-                test: /\.css$/i,
-                loader: 'css-loader'
+                test: /\.(css|scss)$/i,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
     }	

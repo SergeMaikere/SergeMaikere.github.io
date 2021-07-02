@@ -1,6 +1,6 @@
 import {Mother} from '../mother/mother.js';
 import * as Template from './contact.html';
-import * as Css from './contact.css';
+import * as Css from './contact.scss';
 
 export class Contact extends Mother {
 

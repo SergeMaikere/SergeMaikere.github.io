@@ -1,10 +1,11 @@
+import style from './css/style.scss';
 import {LandingPage} from './modules/component/landingPage/landingPage.js';
 import {Header} from './modules/component/header/header.js';
 import {About} from './modules/component/about/about.js';
 import {Services} from './modules/component/services/services.js';
 import {Portfolio} from './modules/component/portfolio/portfolio.js';
 import {Faq} from './modules/component/FAQ/faq.js';
-// import {Team} from './modules/component/team/team.js';
+import {Team} from './modules/component/team/team.js';
 import {Clients} from './modules/component/clients/clients.js';
 import {Contact} from './modules/component/contact/contact.js';
 import {Footer} from './modules/component/footer/footer.js';
@@ -13,6 +14,8 @@ import {Footer} from './modules/component/footer/footer.js';
 class App {
 
 	constructor () {
+
+		this.style = style;
 
 		this.events = [
 			this.#injectSections.bind(this),
@@ -28,7 +31,7 @@ class App {
 			{ container: '#main', ctrl: new Services()},
 			{ container: '#main', ctrl: new Portfolio()},
 			{ container: '#main', ctrl: new Faq()},
-			// { container: '#main', ctrl: new Team()},
+			{ container: '#main', ctrl: new Team()},
 			{ container: '#main', ctrl: new Clients()},
 			{ container: '#main', ctrl: new Contact()},
 			{ container: '#main', ctrl: new Footer()}
@@ -44,6 +47,10 @@ class App {
 		this.sections.forEach( 
 			section => document.querySelector(section.container).appendChild(section.ctrl.innerHtml) 
 		)
+	}
+
+	#injectMainCss () {
+		document.querySelector('#main').innerHtml += `<style>${this.style}</style>`;
 	}
 
 	#initAOS () { AOS.init() }
@@ -91,5 +98,4 @@ class App {
 const app = new App();
 
 app.init();
-
 

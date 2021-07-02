@@ -1,0 +1,42 @@
+@import '../../../css/colors';
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about {
+    h3 {
+        font-weight: 700;
+        font-size: 34px;
+        color: $primary;
+    }
+
+    h4 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 5px;
+        color: $secondary;
+    }
+
+    i {
+        font-size: 48px;
+        margin-top: 15px;
+        color: $quinary;
+    }
+
+    p {
+        font-size: 15px;
+        color: $octonary;
+    }
+}
+
+@media (max-width: 991px) {
+  .about .about-img img {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 767px) {
+  .about .about-img img {
+    max-width: 90%;
+  }
+}
