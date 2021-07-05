@@ -1,4 +1,6 @@
-import style from './css/style.scss';
+import './css/style.scss';
+import { Tooltip, Toast, Popover } from 'bootstrap';
+
 import {LandingPage} from './modules/component/landingPage/landingPage.js';
 import {Header} from './modules/component/header/header.js';
 import {About} from './modules/component/about/about.js';
@@ -14,8 +16,6 @@ import {Footer} from './modules/component/footer/footer.js';
 class App {
 
 	constructor () {
-
-		this.style = style;
 
 		this.events = [
 			this.#injectSections.bind(this),
@@ -49,9 +49,9 @@ class App {
 		)
 	}
 
-	#injectMainCss () {
+	/*#injectMainCss () {
 		document.querySelector('#main').innerHtml += `<style>${this.style}</style>`;
-	}
+	}*/
 
 	#initAOS () { AOS.init() }
 

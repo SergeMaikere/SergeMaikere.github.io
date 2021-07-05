@@ -1,29 +1,19 @@
 import * as Template from './mother.html';
-import mother from './mother.scss';
+import './mother.scss';
 import Utils from '../../services/Utils.js';
 import Language from '../../services/Language.js';
 
 
 export class Mother {
 	constructor () {
-
-		this.elId = 'id';
-
 		this.innerHtml = Template;
 
-		this.css = mother;
-
 		this.events = [];
-
 	}
-
-	get css () { return `<style>${this._css}</style>` }
-
-	set css (newValue) { this._css = newValue }
 
 	get innerHtml () { 
 		let el = document.createElement('div');
-		el.innerHTML = `${this._innerHtml} ${this.css}`;
+		el.innerHTML = `${this._innerHtml}`;
 		this.setTextByLanguage(el)
 		this.setEventsListeners(el);
 		return el; 
@@ -40,5 +30,4 @@ export class Mother {
 		if (!Language.TEXTS.hasOwnProperty(Utils.lowerCaseFirstLetter(this.constructor.name))) return;
 		Language.setTextByLanguage(el, Utils.lowerCaseFirstLetter(this.constructor.name));
 	}
-
 }

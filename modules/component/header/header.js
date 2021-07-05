@@ -7,9 +7,7 @@ export class Header extends Mother {
 
 	constructor () {
 		super();
-		this.elId = 'header';
 		this.innerHtml = Template;
-		this.css = Css;
 
 		this.events = [
          	this.#preventScrollOnEmptyHref,

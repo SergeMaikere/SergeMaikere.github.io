@@ -1,17 +1,15 @@
 import {Mother} from '../mother/mother.js';
 import {PortfolioDetails} from '../portfolio_details/portfolio-details.js';
 import * as Template from './portfolio.html';
-import * as Css from './portfolio.scss';
 import Isotope from 'isotope-layout';
 import AOS from 'aos';
+import './portfolio.scss';
 
 export class Portfolio extends Mother {
 
 	constructor () {
 		super();
-		this.elId = 'portfolio';
 		this.innerHtml = Template;
-		this.css = Css;
 
 		this.events = [ this.filterPortfolioOnClick ]
 	}

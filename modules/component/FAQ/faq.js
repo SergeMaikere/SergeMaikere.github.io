@@ -6,8 +6,6 @@ export class Faq extends Mother {
 
 	constructor () {
 		super();
-		this.elId = 'faq';
 		this.innerHtml = Template;
-		this.css = faq;
 	}
 }
