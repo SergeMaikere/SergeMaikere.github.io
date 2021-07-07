@@ -55,8 +55,7 @@ export class Header extends Mother {
    	#toggleMobileNav = () => {
 		document.getElementById('navbar').classList.toggle('navbar-mobile');
 		let mobileNavButton = document.getElementById('mobile-nav-button');
-      	mobileNavButton.classList.toggle('bi-list');
-      	
+      	mobileNavButton.classList.toggle('bi-list');   	
       	mobileNavButton.classList.toggle('bi-x');
    	}
 

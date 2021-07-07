@@ -118,18 +118,10 @@
 	}
 }
 
-@media (max-width: 1366px) {
-	.navbar .dropdown .dropdown ul {
-		left: -90%;
-	}
-	.navbar .dropdown .dropdown:hover > ul {
-		left: -100%;
-	}
-}
-
 /**
 * Mobile Navigation 
 */
+
 
 .mobile-nav-toggle {
 	color: $secondary;
@@ -142,6 +134,14 @@
 	.bi-x { color: $septenary; } 
 }
 
+@media (max-width: 991px) {
+	.mobile-nav-toggle {
+		display: block;
+	}
+	.navbar ul {
+		display: none;
+	}
+}
 .navbar-mobile {
 	position: fixed;
 	overflow: hidden;
@@ -210,14 +210,5 @@
 			.active:hover { color: $tertiary; }
 			li:hover > a { color: $tertiary; }
 		}
-	}
-}
-
-@media (max-width: 991px) {
-	.mobile-nav-toggle {
-		display: block;
-	}
-	.navbar ul {
-		display: none;
 	}
 }

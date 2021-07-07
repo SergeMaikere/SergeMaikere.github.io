@@ -1,5 +1,6 @@
 import './css/style.scss';
-import { Tooltip, Toast, Popover } from 'bootstrap';
+import 'bootstrap';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 import {LandingPage} from './modules/component/landingPage/landingPage.js';
 import {Header} from './modules/component/header/header.js';
@@ -48,10 +49,6 @@ class App {
 			section => document.querySelector(section.container).appendChild(section.ctrl.innerHtml) 
 		)
 	}
-
-	/*#injectMainCss () {
-		document.querySelector('#main').innerHtml += `<style>${this.style}</style>`;
-	}*/
 
 	#initAOS () { AOS.init() }
 
