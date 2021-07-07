@@ -1,6 +1,9 @@
 import './css/style.scss';
 import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import AOS from 'aos';
+import GLightbox from 'glightbox';
+import Swiper from 'swiper';
 
 import {LandingPage} from './modules/component/landingPage/landingPage.js';
 import {Header} from './modules/component/header/header.js';

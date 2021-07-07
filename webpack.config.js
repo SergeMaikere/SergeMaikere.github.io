@@ -25,8 +25,11 @@ export default {
                 use: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
-                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                include: path.resolve(__dirname, './node_modules/bootstrap-icons/font/fonts'),
+                test: /\.(eot|svg|ttf|woff|woff2?)$/,
+                include: [
+                    path.resolve(__dirname, './node_modules/bootstrap-icons/font/fonts'),
+                    path.resolve(__dirname, './node_modules/boxicons/fonts')
+                ],
                 use: {
                     loader: 'file-loader',
                     options: {
