@@ -1,7 +1,7 @@
-import {Mother} from '../mother/mother.js';
+import Mother from '../mother/mother.js';
 import * as Template from './landingPage.html';
 import './landingPage.scss';
-export class LandingPage extends Mother {
+export default class LandingPage extends Mother {
 
 	constructor () {
 		super();

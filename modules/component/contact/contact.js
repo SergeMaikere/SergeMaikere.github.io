@@ -1,8 +1,8 @@
-import {Mother} from '../mother/mother.js';
+import Mother from '../mother/mother.js';
 import * as Template from './contact.html';
 import './contact.scss';
 
-export class Contact extends Mother {
+export default class Contact extends Mother {
 
 	constructor () {
 		super();

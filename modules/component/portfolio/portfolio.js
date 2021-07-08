@@ -1,11 +1,11 @@
-import {Mother} from '../mother/mother.js';
+import Mother from '../mother/mother.js';
 import {PortfolioDetails} from '../portfolio_details/portfolio-details.js';
 import * as Template from './portfolio.html';
 import Isotope from 'isotope-layout';
 import AOS from 'aos';
 import './portfolio.scss';
 
-export class Portfolio extends Mother {
+export default class Portfolio extends Mother {
 
 	constructor () {
 		super();
