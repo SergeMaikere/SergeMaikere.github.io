@@ -1,9 +1,11 @@
 import Mother from '../mother/mother.js';
-import {PortfolioDetails} from '../portfolio_details/portfolio-details.js';
+import PortfolioDetails from '../portfolio_details/portfolio-details.js';
+import './portfolio.scss';
 import * as Template from './portfolio.html';
+
 import Isotope from 'isotope-layout';
 import AOS from 'aos';
-import './portfolio.scss';
+import GLightbox from 'glightbox';
 
 export default class Portfolio extends Mother {
 
@@ -11,11 +13,14 @@ export default class Portfolio extends Mother {
 		super();
 		this.innerHtml = Template;
 
-		this.events = [ this.filterPortfolioOnClick ]
+		this.events = [ 
+			this.#filterPortfolioOnClick, 
+			this.#initPortfolioGlightbox 
+		]
 	}
 
 
-	filterPortfolioOnClick = el => {
+	#filterPortfolioOnClick = el => {
 		window.addEventListener(
 			'load',
 			() => {
@@ -44,4 +49,6 @@ export default class Portfolio extends Mother {
 			}
 		)
 	}
+
+	#initPortfolioGlightbox = () => { const portfolioLightbox = GLightbox( {selector: '.portfolio-lightbox'} ) }
 }

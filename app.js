@@ -2,7 +2,6 @@ import './css/style.scss';
 import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import AOS from 'aos';
-import GLightbox from 'glightbox';
 import Swiper from 'swiper';
 
 import Mother from './modules/component/mother/mother.js';
@@ -24,9 +23,8 @@ class App extends Mother {
 	constructor () {
 		super();
 		this.events = [
-			this.#initAOS,
-			this.#initPortfolioGlightbox,
-			this.#initClientSwiper
+			this.#initClientSwiper,
+			this.#initAOS
 		]
 
 		this.sections = [
@@ -49,8 +47,6 @@ class App extends Mother {
 	}
 
 	#initAOS = () => AOS.init();
-
-	#initPortfolioGlightbox = () => { const portfolioLightbox = GLightbox( {selector: '.portfolio-lightbox'} ) }
 
 	#initClientSwiper = () => {
 		return  new Swiper(
