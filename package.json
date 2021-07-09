@@ -12,15 +12,22 @@
   "author": "Serge Maïkere",
   "license": "ISC",
   "dependencies": {
+    "@popperjs/core": "^2.9.2",
     "aos": "^3.0.0-beta.6",
+    "bootstrap": "^5.0.2",
+    "bootstrap-icons": "^1.5.0",
+    "boxicons": "^2.0.7",
     "glightbox": "^3.0.8",
-    "isotope-layout": "^3.0.6"
+    "isotope-layout": "^3.0.6",
+    "jquery": "^3.6.0",
+    "swiper": "^6.7.5"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
     "node-sass": "^6.0.0",
     "sass-loader": "^12.1.0",
@@ -29,7 +36,9 @@
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },
-  "babel": { 
-    "presets": [ "@babel/preset-env" ] 
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }

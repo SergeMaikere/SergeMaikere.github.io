@@ -3,7 +3,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default {
-    entry: "./index.js",
+    entry: "./app.js",
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, 'dist')
@@ -23,6 +23,21 @@ export default {
             {
                 test: /\.(css|scss)$/i,
                 use: ['style-loader', 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2?)$/,
+                include: [
+                    path.resolve(__dirname, './node_modules/bootstrap-icons/font/fonts'),
+                    path.resolve(__dirname, './node_modules/boxicons/fonts')
+                ],
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'webfonts',
+                        publicPath: '../webfonts'
+                    }
+                }
             }
         ]
     }	

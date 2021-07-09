@@ -1,15 +1,13 @@
-import {Mother} from '../mother/mother.js';
+import Mother from '../mother/mother.js';
 import * as Template from './header.html';
 import * as Css from './header.scss';
 import Language from '../../services/Language.js';
 
-export class Header extends Mother {
+export default class Header extends Mother {
 
 	constructor () {
 		super();
-		this.elId = 'header';
 		this.innerHtml = Template;
-		this.css = Css;
 
 		this.events = [
          	this.#preventScrollOnEmptyHref,
@@ -57,8 +55,7 @@ export class Header extends Mother {
    	#toggleMobileNav = () => {
 		document.getElementById('navbar').classList.toggle('navbar-mobile');
 		let mobileNavButton = document.getElementById('mobile-nav-button');
-      	mobileNavButton.classList.toggle('bi-list');
-      	
+      	mobileNavButton.classList.toggle('bi-list');   	
       	mobileNavButton.classList.toggle('bi-x');
    	}
 
@@ -134,3 +131,5 @@ export class Header extends Mother {
 		)
    	}
 }
+
+
