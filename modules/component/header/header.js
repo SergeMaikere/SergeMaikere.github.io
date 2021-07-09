@@ -62,7 +62,6 @@ export default class Header extends Mother {
    	/**
    	* Offset on Scroll
    	*/
-
 	#offsetHeaderOnScroll = el => {
 		[...el.querySelectorAll('.scrollto')].forEach(
 			link => {

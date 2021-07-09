@@ -41,10 +41,11 @@ export default class Mother {
 		)
 	}
 
+	#injectOne = (el, section) => el.querySelector(section.container).appendChild(section.component.innerHtml);
+	
 	#injectMany = (el, section) => [...el.querySelectorAll(section.container)].forEach(
-		miniContainer => this.#injectOne(el, new Section(miniContainer, section.component))
+		(miniContainer, i) => miniContainer.appendChild(this.customizeSubComponent(section.component.innerHtml, i))
 	)
 
-	#injectOne = (el, section) => el.querySelector(section.container).appendChild(section.component.innerHtml);
-
+	customizeSubComponent = html => html;
 }
