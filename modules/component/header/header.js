@@ -2,6 +2,7 @@ import Mother from '../mother/mother.js';
 import * as Template from './header.html';
 import * as Css from './header.scss';
 import Language from '../../services/Language.js';
+import Transition from '../../services/transition/Transition.js';
 
 export default class Header extends Mother {
 
@@ -12,10 +13,11 @@ export default class Header extends Mother {
 		this.events = [
          	this.#preventScrollOnEmptyHref,
 			this.#toggleMobileNavOnClick,
-			this.#toggleLinkActiveOnScroll,
-			this.#offsetHeaderOnScroll,
-			this.#scrollToUrlHashLinkOnLoad,
-         	this.#setLanguageOnClick
+			//this.#toggleLinkActiveOnScroll,
+			//this.#offsetHeaderOnScroll,
+			//this.#scrollToUrlHashLinkOnLoad,
+         	this.#setLanguageOnClick,
+         	this.#setTransitionOnClick
 		]
 	}
 
@@ -38,9 +40,7 @@ export default class Header extends Mother {
 		)
 	}
 
-	#getSection = hash => { 
-		return hash ? document.querySelector(hash) : false;
-	}
+	#getSection = hash => hash ? document.querySelector(hash) : false;
 
 	#isInSectionRange = el => { 
 		let position = window.scrollY + 200;
@@ -128,6 +128,22 @@ export default class Header extends Mother {
 	 			}
 	 		)
 		)
+   	}
+
+   	/**
+   	* Transition
+   	*/
+   	#setTransitionOnClick = el => {
+   		[...el.querySelectorAll('.nav-link')].forEach(
+   			link => link.addEventListener(
+   				'click',
+   				e => {
+   					if (Transition.isAlreadyStar(link.hash)) return;
+   					Transition.removeOldStar();
+   					Transition.introduceNewStar(link.hash);
+   				}
+   			)
+   		)
    	}
 }
 

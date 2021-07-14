@@ -24,8 +24,6 @@
 		) 
 	}
 
-	static hasClass  = (element, className) => element.classList.contains(className);
-
 	static addAttribute = (element, attributes) => { 
 		attributes.forEach( 
 			attribute =>  {

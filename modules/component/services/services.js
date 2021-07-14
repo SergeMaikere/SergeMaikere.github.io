@@ -8,6 +8,7 @@ export default class Services extends Mother {
 
 	constructor () {
 		super();
+		this.transition = 'moveFromLeft';
 		this.innerHtml = Template;
 
 		this.sections = [ new Section('.service', new ServiceCard) ]
