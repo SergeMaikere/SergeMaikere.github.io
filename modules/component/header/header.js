@@ -139,8 +139,8 @@ export default class Header extends Mother {
    				'click',
    				e => {
    					if (Transition.isAlreadyStar(link.hash)) return;
-   					Transition.removeOldStar();
-   					Transition.introduceNewStar(link.hash);
+   					Transition.moveComponent('.star');
+   					Transition.moveComponent(link.hash);
    				}
    			)
    		)

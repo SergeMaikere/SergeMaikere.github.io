@@ -21,7 +21,7 @@ export default class Mother {
 		this.injectSections(el);
 		this.setEventsListeners(el);
 		this.#setTextByLanguage(el);
-		this.#setTransition(el);
+		this.#setTransitionData(el);
 		return el; 
 	}
 
@@ -60,13 +60,23 @@ export default class Mother {
 
 	customizeSubComponent = (html, i) => html;
 
-	#setTransition = el => {
+	#setTransitionData = el => {
 		if (!this.transition) return;
-		el.classList.add( el.id == 'landingPage' ? this.transition : Transition.getExitName(this.transition));
-		el.setAttribute('transition', this.transition);
-		const absolute = `#${this.id} { position: absolute; }`;
-		el.innerHTML += `<style>${absolute} ${Transition.getTransitions(this.transition)}</style>`;
+
+		this.#setTransition(el);
+		this.#setClasses(el);
+		this.#setTransitionCss(el);	
 	}
+
+	#setTransition = el => el.setAttribute('transition', this.transition);
+
+	#setClasses = el => this.id == 'landingPage' ? this.#setLandingClasses(el) : this.#setNotLandingClass(el);
+
+	#setLandingClasses = el => Utils.addClass(el, ['star', this.transition]);
+
+	#setNotLandingClass = el => el.classList.add( Transition.getExitName(this.transition) );
+
+	#setTransitionCss = el => Transition.getCssTransition(el, this.transition);
 }
 
 

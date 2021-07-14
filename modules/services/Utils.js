@@ -11,7 +11,7 @@
 	static addClass = (element, classNames) => { 
 		classNames.forEach( 
 			className => {
-				if (!this.hasClass(element, className)) element.classList.add(className)
+				if (!element.classList.contains(className)) element.classList.add(className)
 			}
 		) 
 	}
@@ -19,7 +19,7 @@
 	static removeClass = (element, classNames) => { 
 		classNames.forEach( 
 			className => {
-				if (this.hasClass(element, className)) element.classList.remove(className)
+				if (element.classList.contains(className)) element.classList.remove(className)
 			}
 		) 
 	}

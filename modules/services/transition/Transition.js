@@ -16,30 +16,17 @@ export default class Transition {
 
 	static isAlreadyStar = href => document.querySelector(href).classList.contains('star');
 
-	static removeOldStar = () => {
-		const oldStar = document.querySelector('.star');
+	static moveComponent = selector => {
+		const oldStar = document.querySelector(selector);
 		const transEnter = oldStar.getAttribute('transition');
 		oldStar.classList.toggle('star');
 		oldStar.classList.toggle( Transition.getExitName(transEnter) );
-		oldStar.classList.toggle( transEnter);
+		oldStar.classList.toggle(transEnter);
 	}
 
-	static introduceNewStar = href => {
-		const newStar = document.querySelector(href);
-		const transEnter = newStar.getAttribute('transtion');
-		newStar.classList.toggle('star');
-		newStar.classList.toggle( Transition.getExitName(transEnter) );
-		newStar.classList.toggle(transEnter);
-	}
-
-	static getCssTransition = transition => {
-		const transitionData = this.transitions.from[ transition ];
-		return this.setTranslation(transitionData.enter, '120') + this.setTranslation(this.transitions.to[ transitionData.exitName ].enter, '120');
-	}
-
-	// Adjust de % of the translation
-	static setTranslation = (str, value) => {
-		return str.replace(/translateX\(100/g, `translateX(${value}`)
-		.replace(/translateX\(\-100/g, `translateX(-${value}`);
+	static getCssTransition = (el, transition) => {
+		const absolute = `#${el.id} { position: absolute; right: 0; left: 0; }`;
+		el.innerHTML += `<style>${absolute} ${Transition.getTransitions(transition)}</style>`;
+		return el;
 	}
 }
