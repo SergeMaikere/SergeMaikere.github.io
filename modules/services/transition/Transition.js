@@ -17,11 +17,11 @@ export default class Transition {
 	static isAlreadyStar = href => document.querySelector(href).classList.contains('star');
 
 	static moveComponent = selector => {
-		const oldStar = document.querySelector(selector);
-		const transEnter = oldStar.getAttribute('transition');
-		oldStar.classList.toggle('star');
-		oldStar.classList.toggle( Transition.getExitName(transEnter) );
-		oldStar.classList.toggle(transEnter);
+		const page = document.querySelector(selector);
+		const transEnter = page.getAttribute('transition');
+		page.classList.toggle('star');
+		page.classList.toggle( Transition.getExitName(transEnter) );
+		page.classList.toggle(transEnter);
 	}
 
 	static getCssTransition = (el, transition) => {

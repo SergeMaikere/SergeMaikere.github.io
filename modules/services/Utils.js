@@ -8,7 +8,7 @@
 
 	static toggleClass = (element, className) => element.classList.toggle(className);
 
-	static addClass = (element, classNames) => { 
+	static addClasses = (element, classNames) => { 
 		classNames.forEach( 
 			className => {
 				if (!element.classList.contains(className)) element.classList.add(className)

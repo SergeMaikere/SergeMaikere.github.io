@@ -11,11 +11,11 @@ export default class Header extends Mother {
 		this.innerHtml = Template;
 
 		this.events = [
-         	this.#preventScrollOnEmptyHref,
-			this.#toggleMobileNavOnClick,
+         	//this.#preventScrollOnEmptyHref,
 			//this.#toggleLinkActiveOnScroll,
 			//this.#offsetHeaderOnScroll,
 			//this.#scrollToUrlHashLinkOnLoad,
+			this.#toggleMobileNavOnClick,
          	this.#setLanguageOnClick,
          	this.#setTransitionOnClick
 		]
@@ -141,6 +141,7 @@ export default class Header extends Mother {
    					if (Transition.isAlreadyStar(link.hash)) return;
    					Transition.moveComponent('.star');
    					Transition.moveComponent(link.hash);
+   					if (document.getElementById('navbar').classList.contains('navbar-mobile')) this.#toggleMobileNav();
    				}
    			)
    		)

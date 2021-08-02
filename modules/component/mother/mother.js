@@ -72,7 +72,7 @@ export default class Mother {
 
 	#setClasses = el => this.id == 'landingPage' ? this.#setLandingClasses(el) : this.#setNotLandingClass(el);
 
-	#setLandingClasses = el => Utils.addClass(el, ['star', this.transition]);
+	#setLandingClasses = el => Utils.addClasses(el, ['star', this.transition]);
 
 	#setNotLandingClass = el => el.classList.add( Transition.getExitName(this.transition) );
 
