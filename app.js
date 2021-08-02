@@ -36,8 +36,8 @@ class App extends Mother {
 			new Section('#main', new Faq),
 			new Section('#main', new Team),
 			new Section('#main', new Clients),
-			new Section('#main', new Contact),
-			new Section('#main', new Footer)
+			new Section('#main', new Contact)
+			//new Section('#main', new Footer)
 		]
 	}
 

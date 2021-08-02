@@ -8,10 +8,10 @@
 
 	static toggleClass = (element, className) => element.classList.toggle(className);
 
-	static addClass = (element, classNames) => { 
+	static addClasses = (element, classNames) => { 
 		classNames.forEach( 
 			className => {
-				if (!this.hasClass(element, className)) element.classList.add(className)
+				if (!element.classList.contains(className)) element.classList.add(className)
 			}
 		) 
 	}
@@ -19,12 +19,10 @@
 	static removeClass = (element, classNames) => { 
 		classNames.forEach( 
 			className => {
-				if (this.hasClass(element, className)) element.classList.remove(className)
+				if (element.classList.contains(className)) element.classList.remove(className)
 			}
 		) 
 	}
-
-	static hasClass  = (element, className) => element.classList.contains(className);
 
 	static addAttribute = (element, attributes) => { 
 		attributes.forEach( 

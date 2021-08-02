@@ -2,6 +2,7 @@ import Mother from '../mother/mother.js';
 import * as Template from './header.html';
 import * as Css from './header.scss';
 import Language from '../../services/Language.js';
+import Transition from '../../services/transition/Transition.js';
 
 export default class Header extends Mother {
 
@@ -10,12 +11,13 @@ export default class Header extends Mother {
 		this.innerHtml = Template;
 
 		this.events = [
-         	this.#preventScrollOnEmptyHref,
+         	//this.#preventScrollOnEmptyHref,
+			//this.#toggleLinkActiveOnScroll,
+			//this.#offsetHeaderOnScroll,
+			//this.#scrollToUrlHashLinkOnLoad,
 			this.#toggleMobileNavOnClick,
-			this.#toggleLinkActiveOnScroll,
-			this.#offsetHeaderOnScroll,
-			this.#scrollToUrlHashLinkOnLoad,
-         	this.#setLanguageOnClick
+         	this.#setLanguageOnClick,
+         	this.#setTransitionOnClick
 		]
 	}
 
@@ -38,9 +40,7 @@ export default class Header extends Mother {
 		)
 	}
 
-	#getSection = hash => { 
-		return hash ? document.querySelector(hash) : false;
-	}
+	#getSection = hash => hash ? document.querySelector(hash) : false;
 
 	#isInSectionRange = el => { 
 		let position = window.scrollY + 200;
@@ -62,7 +62,6 @@ export default class Header extends Mother {
    	/**
    	* Offset on Scroll
    	*/
-
 	#offsetHeaderOnScroll = el => {
 		[...el.querySelectorAll('.scrollto')].forEach(
 			link => {
@@ -129,6 +128,23 @@ export default class Header extends Mother {
 	 			}
 	 		)
 		)
+   	}
+
+   	/**
+   	* Transition
+   	*/
+   	#setTransitionOnClick = el => {
+   		[...el.querySelectorAll('.nav-link')].forEach(
+   			link => link.addEventListener(
+   				'click',
+   				e => {
+   					if (Transition.isAlreadyStar(link.hash)) return;
+   					Transition.moveComponent('.star');
+   					Transition.moveComponent(link.hash);
+   					if (document.getElementById('navbar').classList.contains('navbar-mobile')) this.#toggleMobileNav();
+   				}
+   			)
+   		)
    	}
 }
 

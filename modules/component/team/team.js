@@ -5,6 +5,7 @@ export default class Team extends Mother {
 
 	constructor () {
 		super();
+		this.transition = 'moveFromLeft';
 		this.innerHtml = Template;
 	}
 }

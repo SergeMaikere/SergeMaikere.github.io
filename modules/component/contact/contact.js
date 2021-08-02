@@ -6,6 +6,7 @@ export default class Contact extends Mother {
 
 	constructor () {
 		super();
+		this.transition = 'moveFromLeft';
 		this.innerHtml = Template;
 	}
 }
