@@ -11,7 +11,7 @@ export default class Portfolio extends Mother {
 
 	constructor () {
 		super();
-		this.transition = 'moveFromLeft';
+		//this.transition = 'rotateCubeTopIn';
 		this.innerHtml = Template;
 
 		this.events = [ 

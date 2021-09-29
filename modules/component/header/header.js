@@ -11,15 +11,17 @@ export default class Header extends Mother {
 		this.innerHtml = Template;
 
 		this.events = [
-         	//this.#preventScrollOnEmptyHref,
-			//this.#toggleLinkActiveOnScroll,
-			//this.#offsetHeaderOnScroll,
-			//this.#scrollToUrlHashLinkOnLoad,
+         	this.#preventScrollOnEmptyHref,
+			this.#toggleLinkActiveOnScroll,
+			this.#offsetHeaderOnScroll,
+			this.#scrollToUrlHashLinkOnLoad,
 			this.#toggleMobileNavOnClick,
          	this.#setLanguageOnClick,
          	this.#setTransitionOnClick
 		]
 	}
+
+	#hasTransition = link => document.querySelector(link).hasAttribute('transition');
 
 	#toggleLinkActiveOnScroll = el => {
 		window.addEventListener('load', this.#toggleLinkActive);
@@ -33,6 +35,7 @@ export default class Header extends Mother {
 				const section = this.#getSection(navlink.hash);
 
 				if (!section) return;
+				if(this.#hasTransition(navlink.hash)) return;
 
 				if (this.#isInSectionRange(section)) navlink.classList.add('active');
 				if (!this.#isInSectionRange(section)) navlink.classList.remove('active');
@@ -70,6 +73,8 @@ export default class Header extends Mother {
 					e => {
 						e.preventDefault();
 						if (!link.hash) return;
+						if (this.#hasTransition(link.hash)) return;
+
 						if (document.getElementById('navbar').classList.contains('navbar-mobile')) this.#toggleMobileNav();
 						window.location.hash = link.hash;
                   		this.#scrollTo(link.hash);
@@ -98,7 +103,10 @@ export default class Header extends Mother {
 		window.addEventListener(
 			'load',
 			() => {
-				if (!window.location.hash || !document.querySelector(window.location.hash)) return;
+				if (!window.location.hash || 
+					!document.querySelector(window.location.hash) ||
+					this.#hasTransition(window.location.hash)) return;
+
 				this.#scrollTo(window.location.hash);
 			}
 		)

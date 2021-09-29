@@ -6,7 +6,7 @@ export default class Faq extends Mother {
 
 	constructor () {
 		super();
-		this.transition = 'moveFromLeft';
+		this.transition = 'rotateCubeTopIn';
 		this.innerHtml = Template;
 	}
 }

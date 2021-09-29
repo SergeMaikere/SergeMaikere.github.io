@@ -16,6 +16,7 @@ import Team from './modules/component/team/team.js';
 import Clients from './modules/component/clients/clients.js';
 import Contact from './modules/component/contact/contact.js';
 import Footer from './modules/component/footer/footer.js';
+import Big_bro from './modules/component/big_bro/big_bro.js';
 
 
 class App extends Mother {
@@ -30,9 +31,10 @@ class App extends Mother {
 		this.sections = [
 			new Section('#landing', new Header),
 			new Section('#landing', new LandingPage),
-			new Section('#main', new About),
+			new Section('#main', new Big_bro),
+			/*new Section('#main', new About),
 			new Section('#main', new Services),
-			new Section('#main', new Portfolio),
+			new Section('#main', new Portfolio),*/
 			new Section('#main', new Faq),
 			new Section('#main', new Team),
 			new Section('#main', new Clients),

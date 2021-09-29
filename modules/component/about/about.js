@@ -7,7 +7,7 @@ export default class About extends Mother {
 
 	constructor () {
 		super();
-		this.transition = 'moveFromLeft';
+		//this.transition = 'rotateCubeTopIn';
 		this.innerHtml = Template;
 		this.sections = [ new Section('.about-card', new AboutCard) ]
 	}

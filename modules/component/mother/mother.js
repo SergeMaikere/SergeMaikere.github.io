@@ -27,16 +27,16 @@ export default class Mother {
 
 	set innerHtml (newValue) { this._innerHtml = newValue.default }
 
-	setEventsListeners = el => {
-		if (this.events.length == 0) return;
-		this.events.forEach( event => event(el) );
-	}
-
 	#setElement = () => {
 		let el = document.createElement('div');
 		el.id = this.id;
 		el.innerHTML = `${this._innerHtml}`;
 		return el;
+	}
+
+	setEventsListeners = el => {
+		if (this.events.length == 0) return;
+		this.events.forEach( event => event(el) );
 	}
 
 	#setTextByLanguage = el => {
@@ -63,20 +63,20 @@ export default class Mother {
 	#setTransitionData = el => {
 		if (!this.transition) return;
 
-		this.#setTransition(el);
-		this.#setClasses(el);
+		this.#setTransitionAttribute(el);
+		this.#setLanding(el);
 		this.#setTransitionCss(el);	
 	}
 
-	#setTransition = el => el.setAttribute('transition', this.transition);
+	#setTransitionAttribute = el => el.setAttribute('transition', this.transition);
 
-	#setClasses = el => this.id == 'landingPage' ? this.#setLandingClasses(el) : this.#setNotLandingClass(el);
+	#setLanding = el => this.id == 'landingPage' ? this.#setLandingThruthy(el) : this.#setLandingFalsy(el);
 
-	#setLandingClasses = el => Utils.addClasses(el, ['star', this.transition]);
+	#setLandingThruthy = el => Utils.addClasses(el, ['star', this.transition]);
 
-	#setNotLandingClass = el => el.classList.add( Transition.getExitName(this.transition) );
+	#setLandingFalsy = el => el.classList.add( Transition.getJSON(this.transition, 'exitName') );
 
-	#setTransitionCss = el => Transition.getCssTransition(el, this.transition);
+	#setTransitionCss = el => Transition.addCssTransition(el, this.transition);
 }
 
 
